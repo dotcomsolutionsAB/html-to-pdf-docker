@@ -1,2 +1,2 @@
 Flask==2.3.2
-pdfkit==1.0.0
+WeasyPrint==58.0

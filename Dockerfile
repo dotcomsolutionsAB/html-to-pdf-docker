@@ -7,9 +7,9 @@ WORKDIR /app
 # Copy the current directory contents into the container
 COPY . /app
 
-# Install the necessary packages
+# Install necessary system packages for WeasyPrint
 RUN apt-get update && apt-get install -y \
-    wkhtmltopdf \
+    libpango-1.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies

@@ -1,5 +1,5 @@
 from flask import Flask, request, make_response
-import pdfkit  # You can also use WeasyPrint if you prefer.
+from weasyprint import HTML
 
 app = Flask(__name__)
 
@@ -9,8 +9,8 @@ def html_to_pdf():
     if not content:
         return {"error": "No HTML content provided"}, 400
 
-    # Generate PDF from HTML
-    pdf = pdfkit.from_string(content, False)
+    # Convert HTML to PDF using WeasyPrint
+    pdf = HTML(string=content).write_pdf()
 
     # Create a PDF response
     response = make_response(pdf)
